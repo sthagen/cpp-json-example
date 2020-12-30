@@ -20,10 +20,9 @@ include(${CPM_DOWNLOAD_LOCATION})
 # See https://github.com/TheLartians/CPM.cmake for details and examples
 
 CPMAddPackage(
-    NAME json
-    GITHUB_REPOSITORY sthagen/json
-    GIT_TAG v3.6.1
-)
+  NAME nlohmann_json
+  GITHUB_REPOSITORY nlohmann/json
+  VERSION 3.9.1)
 
 # ---- Create executable ----
 
