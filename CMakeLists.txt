@@ -21,12 +21,20 @@ include(${CPM_DOWNLOAD_LOCATION})
 
 CPMAddPackage(
   NAME nlohmann_json
-  GITHUB_REPOSITORY nlohmann/json
-  VERSION 3.9.1)
+  VERSION 3.6.1  
+  # not using the repo as it takes forever to clone
+  URL https://github.com/nlohmann/json/releases/download/v3.6.1/include.zip
+  URL_HASH SHA256=69cc88207ce91347ea530b227ff0776db82dcb8de6704e1a3d74f4841bc651cf
+)
+
+if(nlohmann_json_ADDED)
+  add_library(nlohmann_json INTERFACE)
+  target_include_directories(nlohmann_json INTERFACE ${nlohmann_json_SOURCE_DIR})
+endif()
 
 # ---- Create executable ----
 
 add_executable(json_example main.cpp)
 set_target_properties(json_example PROPERTIES CXX_STANDARD 17)
 
-target_link_libraries(json_example json)
+target_link_libraries(json_example nlohmann_json)
