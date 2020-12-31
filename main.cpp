@@ -1,11 +1,8 @@
 #include <iostream>
 #include <string>
 
-// this include is not working yet ...
 #include <nlohmann/json.hpp>
 
-// for convenience
-using json = nlohmann::json;
 
 int main() {
   auto j = R"(
